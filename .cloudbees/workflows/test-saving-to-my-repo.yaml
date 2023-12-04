@@ -8,8 +8,8 @@ on:
 jobs:
   build:
     steps:
-      - name: Say hello
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "hello world"
+      - uses: cloudbees-demos/comp1/install@main
+        name: Install comp1
+        kind: deploy
+        with:
+          version: 1
