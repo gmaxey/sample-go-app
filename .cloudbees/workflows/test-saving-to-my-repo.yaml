@@ -1,15 +1,20 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: Test saving to my repo
+name: Deploy
 on:
   push:
     branches:
       - "**"
 jobs:
-  build:
+  deploy:
     steps:
       - uses: cloudbees-demos/comp1/install@main
         name: Install comp1
         kind: deploy
         with:
           version: 1
+      - uses: cloudbees-demos/comp2/install@main
+        name: Install comp2
+        kind: deploy
+        with:
+          version: 2
