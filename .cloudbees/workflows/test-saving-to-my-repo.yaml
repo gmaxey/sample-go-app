@@ -12,9 +12,9 @@ jobs:
         name: Install comp1
         kind: deploy
         with:
-          version: 1
+          version: "1"
       - uses: cloudbees-demos/comp2/install@main
         name: Install comp2
         kind: deploy
         with:
-          version: 2
+          version: "2"
