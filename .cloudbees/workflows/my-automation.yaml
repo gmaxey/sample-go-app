@@ -1,13 +1,8 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: My automation
-
-
 on:
-  push:
-    branches:
-      - '**'
-
+  workflow_dispatch:
 jobs:
   build:
     steps:
@@ -16,7 +11,6 @@ jobs:
         shell: sh
         run: |
           echo "hello world from CloudBees DevOps Platform!"
-
   ci-job:
     steps:
       - uses: docker://alpine/git:latest
