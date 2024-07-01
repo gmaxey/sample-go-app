@@ -11,4 +11,3 @@ jobs:
         shell: sh
         run: |
           echo "hello world from CloudBees DevOps Platform!"
-          exit 1
