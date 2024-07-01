@@ -9,3 +9,5 @@ jobs:
         shell: sh
         run: |
           echo "hello world from CloudBees DevOps Platform!"
+on:
+  workflow_dispatch:
