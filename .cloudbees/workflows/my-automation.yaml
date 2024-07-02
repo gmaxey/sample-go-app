@@ -3,9 +3,6 @@ kind: workflow
 name: My automation
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - main
 jobs:
   build:
     steps:
@@ -13,4 +10,4 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "hello world from CloudBees DevOps Platform!"
+          echo "hello world from CloudBees DevOps Platform! "
