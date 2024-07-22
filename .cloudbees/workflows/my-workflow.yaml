@@ -12,10 +12,9 @@ jobs:
         run: |
           echo "Available cloudbees properties"
           echo api: ${{ cloudbees.api.url }}
-          echo event: ${{ cloudbees.event }}
           echo event_name: ${{ cloudbees.event_name }}
           echo home: ${{ cloudbees.home }}
           echo run_id: ${{ cloudbees.run_id }}
-          echo scm: ${{ cloudbees.scm }}
+          echo scm: ${{ cloudbees.scm.ref }}
           echo version: ${{ cloudbees.version }}
           echo workspace: ${{ cloudbees.workspace }}
