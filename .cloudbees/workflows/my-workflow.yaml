@@ -11,3 +11,4 @@ jobs:
         shell: sh
         run: |
           echo "hello world"
+          step: ${{cloudbees.step_name}}
