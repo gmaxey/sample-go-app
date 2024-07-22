@@ -11,7 +11,7 @@ jobs:
         shell: sh
         run: |
           echo "Available cloudbees properties"
-          echo api: ${{ cloudbees.api }}
+          echo api: ${{ cloudbees.api.url }}
           echo event: ${{ cloudbees.event }}
           echo event_name: ${{ cloudbees.event_name }}
           echo home: ${{ cloudbees.home }}
