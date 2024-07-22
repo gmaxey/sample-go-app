@@ -10,11 +10,11 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Available cloudbees properties"
-          echo api: ${{ cloudbees.api.url }}
+          echo "Available cloudbees.X properties"
+          echo api.url: ${{ cloudbees.api.url }}
           echo event_name: ${{ cloudbees.event_name }}
           echo home: ${{ cloudbees.home }}
           echo run_id: ${{ cloudbees.run_id }}
-          echo scm: ${{ cloudbees.scm.ref }}
+          echo scm.ref: ${{ cloudbees.scm.ref }}
           echo version: ${{ cloudbees.version }}
           echo workspace: ${{ cloudbees.workspace }}
