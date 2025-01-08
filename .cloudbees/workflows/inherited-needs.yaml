@@ -1,0 +1,31 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: inherited-needs
+on:
+  workflow_dispatch:
+jobs:
+  A:
+    outputs:
+      Aout: ${{ steps.out.outputs.Aout }}
+    steps:
+      - id: out
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Aout value" >> "CLOUDBEES_OUTPUTS/Aout"
+  B:
+    needs: A
+    steps:
+      - name: do something
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Doing something"
+  C:
+    needs: [A,B]
+    steps:
+      - id: out
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Aout: ${{ needs.A.Aout }}"
