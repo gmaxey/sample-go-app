@@ -12,7 +12,7 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Aout value" >> "CLOUDBEES_OUTPUT/Aout"
+          echo "Aout value" >> "$CLOUDBEES_OUTPUTS/Aout"
   B:
     needs: A
     steps:
