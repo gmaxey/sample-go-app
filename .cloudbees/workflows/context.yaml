@@ -18,3 +18,4 @@ jobs:
           echo cloudbees.run_id: ${{ cloudbees.run_id }}
           echo cloudbees.run_attempt: ${{ cloudbees.run_attempt }}
           echo step.id: ${{ step.id }}
+          echo job: ${{ job }}
