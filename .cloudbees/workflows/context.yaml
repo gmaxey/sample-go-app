@@ -18,4 +18,6 @@ jobs:
           echo cloudbees.run_id: ${{ cloudbees.run_id }}
           echo cloudbees.run_attempt: ${{ cloudbees.run_attempt }}
           echo step.id: ${{ step.id }}
-          echo job: ${{ job }}
+          echo step: ${{ step }}
+          # echo job: ${{ job }}
+          # api, event, event_name, home, registries, run_attempt, run_id, scm, version, workspace
