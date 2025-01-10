@@ -1,0 +1,18 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: context
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo cloudbees.home: ${{ cloudbees.home }}
+          echo cloudbees.api.url: ${{ cloudbees.api.url }}
+          echo cloudbees.api.token: ${{ cloudbees.api.token }}
+          echo cloudbees.run_id: ${{ cloudbees.run_id }}
+          echo cloudbees.run_attempt: ${{ cloudbees.run_attempt }}
+          echo step.id: ${{ step.id }}
