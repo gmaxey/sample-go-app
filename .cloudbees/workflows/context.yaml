@@ -6,6 +6,7 @@ on:
 
 env:
   ISPREPROD: ${{ contains(cloudbees.api.url,'preprod') && 'It is preprod' || 'It is probably prod' }}
+  ISPREPRODTF: ${{ contains(cloudbees.api.url,'preprod') && true || false }}
 
 jobs:
   build:
@@ -21,3 +22,4 @@ jobs:
           echo cloudbees.run_attempt: ${{ cloudbees.run_attempt }}
           echo step.id: ${{ step.id }}
           echo Is it preprod: $ISPREPROD
+          echo Is it preprod TF: $ISPREPRODTF
