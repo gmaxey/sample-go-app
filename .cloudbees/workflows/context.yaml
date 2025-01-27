@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  ISPREPROD: ${{ contains('preprod',cloudbees.api.url) && 'It is preprod' || 'It is probably prod' }}
+  ISPREPROD: ${{ contains(cloudbees.api.url,'preprod') && 'It is preprod' || 'It is probably prod' }}
 
 jobs:
   build:
