@@ -1,0 +1,42 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: Workload types
+on:
+  workflow_dispatch:
+jobs:
+  Containers-Actions:
+    steps:
+      - name: Container
+        run: |
+          echo "hello world"
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+
+      - name: Action
+        with:
+          content: Some evidence ...
+        uses: cloudbees-io/publish-evidence-item@v1
+
+      - name: Dispatch
+        with:
+          workflows-dispatch-file: manifest
+          token: abc
+        uses: cloudbees-io/workflows-dispatch@v1
+        if: "false"
+
+  Custom-job:
+    with:
+      approvers: ""
+      disallowLaunchByUser: false
+      instructions: ""
+      approvalInputs: |
+        {}
+    timeout-minutes: 4320
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+    
+  reusable-workflow:
+    uses: gmaxey/reusableworkflows/MyAppDeploy.yaml
+    with:
+      artifactName: MyAppBE
+      artifactVersion: 2.2.0-0.0.21
+      environment: prod
